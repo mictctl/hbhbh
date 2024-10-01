@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luciérnagas Iluminando una Carta</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #1a1a2e; /* Fondo nocturno */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carta {
+            width: 300px;
+            height: 400px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            overflow: hidden;
+        }
+
+        .carta h1 {
+            font-size: 24px;
+            text-align: center;
+            color: #333;
+        }
+
+        .carta p {
+            font-size: 18px;
+            color: #555;
+            text-align: justify;
+        }
+
+        .luciernaga {
+            position: absolute;
+            background-color: yellow;
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            opacity: 0;
+            animation: parpadeo 1s infinite alternate;
+        }
+
+        @keyframes parpadeo {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="carta">
+        <h1>Querida [Nombre]</h1>
+        <p>
+            Desde el momento en que te vi, mi mundo se llenó de luz. 
+            Eres como estas luciérnagas, iluminando mi vida en la oscuridad. 
+            Te amo más de lo que las palabras pueden expresar.
+        </p>
+        <p>Con todo mi amor, [Tu nombre]</p>
+    </div>
+
+    <script>
+        const body = document.body;
+        for (let i = 0; i < 20; i++) {
+            const luciernaga = document.createElement('div');
+            luciernaga.classList.add('luciernaga');
+            luciernaga.style.top = Math.random() * window.innerHeight + 'px';
+            luciernaga.style.left = Math.random() * window.innerWidth + 'px';
+            luciernaga.style.animationDuration = Math.random() * 2 + 1 + 's'; // Duración aleatoria
+            body.appendChild(luciernaga);
+
+            // Movimiento aleatorio
+            const moveLuciernaga = () => {
+                luciernaga.style.top = Math.random() * window.innerHeight + 'px';
+                luciernaga.style.left = Math.random() * window.innerWidth + 'px';
+            };
+            setInterval(moveLuciernaga, 2000); // Mueve cada 2 segundos
+        }
+    </script>
+</body>
+</html>
